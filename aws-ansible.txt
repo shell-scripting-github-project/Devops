@@ -1,0 +1,29 @@
+#installing ansible for windows
+sudo yum install python3-pip -y
+pip3 install ansible
+ansible --version
+
+#installing ansible for linux
+sudo apt install python3-pip -y
+pip3 install ansible 
+ansible --version
+
+ansible adhoc commands used for single and simple commands
+playbooks are written for large commands
+vim inventory (store your target private ip add)
+ansible -i inventory all -m (module) "shell" -a "touch decopsclass"
+vim inventory (this is to make group brackets are important)
+[dbservers]
+<ip add>
+[webservers]
+<ip add>
+ansible -i inventory dbservers -m (module) "shell" -a "touch decopsclass"
+playbook is saved in .yml or .yaml extension
+yml file starts with --- 
+-name: (- means this is a list)
+ansible command used for adhoc commands
+ansible-playbook command used for playbook yml files
+ansible-playbook -i inventory <playbook.yml>
+ansible-playbook -vvv -i inventory <playbook.yml> (-vvv for verbose , verbose means debugging)
+ansible-galaxy role <filename> (role will create some files to give structure )
+
