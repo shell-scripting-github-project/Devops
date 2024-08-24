@@ -1,0 +1,21 @@
+#Download for windows
+wget https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
+unzip terraform_1.9.5_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+terraform --version
+
+#Download for ubuntu/linux
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
+
+terraform is used to create instances or any other aws services using API (application program interface)
+terraform hashicorp docs
+main.tf (write custom code according to need from docs to create an instance) (file will be saved in .tf format)
+terraform init -> initlaization
+terraform plan -> dry run 
+terraform apply
+terraform destroy
+ls -ltr
+terrafaormtfstate.tf (this file tracks the instance with private details) do not share this file im github or anywhere else
+output.tf
